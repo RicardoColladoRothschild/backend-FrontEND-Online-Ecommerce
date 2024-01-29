@@ -16,6 +16,23 @@ Products.init({
     products_id:{
         type:DataTypes.INTEGER,
         primaryKey:true,
+        allowNull:false
+     },
+     name:{
+        type:DataTypes.STRING,
+        allowNull:false
+     },
+     description:{
+        type:DataTypes.STRING,
+        allowNull:true,
+     },
+     price:{
+        type:DataTypes.INTEGER,
+        allowNull:false,
+     },
+     img_url:{
+        type:DataTypes.STRING,
+        allowNull:true
      }
    
     },
