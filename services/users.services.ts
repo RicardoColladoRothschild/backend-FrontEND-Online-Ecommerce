@@ -1,4 +1,12 @@
-class UsersServices{
+import IUser from "../interfaces/IUser";
 
-    constructor(user:User){}
+class UsersServices{
+    private _user:IUser;
+    constructor(user:IUser){
+        this._user = user;
+    }
+
+    createAUser(){
+        
+    }
 }
