@@ -13,7 +13,10 @@ class UsersServices{
 
             if(isEmailDuplicated){
                 throw new Error('There has been an internal Server Error, element email is duplicated');
+            }else{
+                return `User created: ${this._user}`;
             }
+            
     }
 }
 
