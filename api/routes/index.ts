@@ -1,8 +1,10 @@
-import { Application } from 'express';
+import express, { Application } from 'express';
 import userRoute from './users.routes';
 
 function routeApi(app:Application){
-    app.use('/user',userRoute);
+    const router = express.Router();
+    app.use('/api/v1', router);
+    router.use('/user',userRoute);
 }
 
 export default routeApi;

@@ -1,13 +1,13 @@
 import express, { Request, Response } from 'express';
-import sequelize from './api/models/sequelize.config';
-import routeApi from './api/routes';
+import sequelize from './models/sequelize.config';
+import routeApi from './routes';
 const server = express();
-const PORT = 3031;
+const PORT = process.env.PORT || 3031;
 
 server.use(express.json());
 
 
-server.get('/', (request:Request, response: Response)=>{
+server.get('/api', (request:Request, response: Response)=>{
 
         response.status(200).json({message:'Probando index'});
 });
