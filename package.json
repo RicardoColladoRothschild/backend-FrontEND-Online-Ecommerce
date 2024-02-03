@@ -2,7 +2,7 @@
   "name": "onlinestore_ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
+  "main": "app.js",
   "scripts": {
     "test": "jest",
     "test:watch":"jest --watch"
