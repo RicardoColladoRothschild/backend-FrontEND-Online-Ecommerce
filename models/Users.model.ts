@@ -7,7 +7,9 @@ class Users extends Model {
     public password!:string;
     public name!:string;
     public lastName!:string;
-    public address!:string;
+    public direccion!:string;
+    public createdAt!: Date;
+    public updatedAt!: Date;
 
 }
 
@@ -38,15 +40,25 @@ Users.init({
             type:DataTypes.STRING,
             allowNull:false,
         },
-        address:{
+        direccion:{
             type:DataTypes.STRING,
             allowNull:true
+        },
+        createdAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
+        },
+        updatedAt: {
+            type: DataTypes.DATE,
+            allowNull: false,
+            defaultValue: DataTypes.NOW
         }
 
 },
 {
     sequelize,
-    tableName:'users'
+    tableName:'user'
 }
 
 );
