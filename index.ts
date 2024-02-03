@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
-import sequelize from '../models/sequelize.config';
-import routeApi from '../routes';
+import sequelize from './api/models/sequelize.config';
+import routeApi from './api/routes';
 const server = express();
 const PORT = 3031;
 
