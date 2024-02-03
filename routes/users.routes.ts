@@ -47,9 +47,19 @@ router.post('/', async (req:Request, res: Response)=>{
                 const newUser:IUser = {username, email, password, name, lastName, direccion};
             let user_service = new UsersServices(newUser);
             const newUser_Created = user_service.createAUser();
-                return res
-                        .status(201)
-                        .json(newUser_Created);
+
+            newUser_Created
+                        .then((resolve)=>{
+                            res
+                                .status(201)
+                                .json({resolve})
+                        })
+                        .catch((error)=>{
+                            res
+                                .status(400)
+                                .json(error);
+                        })
+                
     }catch(error){
         return res
                 .status(400)

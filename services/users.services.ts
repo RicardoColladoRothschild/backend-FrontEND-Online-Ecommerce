@@ -7,6 +7,7 @@ class UsersServices{
     }
 
     async createAUser(){
+
         const isEmailDuplicated = await Users.findOne({
             where:{email:this._user.email}
         });
@@ -14,22 +15,29 @@ class UsersServices{
         const isUserNameDuplicated = await Users.findOne({
             where:{username:this._user.username}
         });
+            return new Promise((resolve, reject)=>{
 
-            if(isEmailDuplicated || isUserNameDuplicated){
-                throw new Error('There has been an internal Server Error, element email or username is duplicated');
-            }else{
+                
+                if(isEmailDuplicated || isUserNameDuplicated){
+                    reject('user was not created. Already exist.');
+                }else{
+    
+                        const newUser = Users.create({
+                            username:this._user.username,
+                            email:this._user.email,
+                            password:this._user.password,
+                            name:this._user.name,
+                            lastName:this._user.lastName,
+                            direccion:this._user.direccion
+                        });
+    
+                    resolve(newUser);
+                }
 
-                    const newUser = Users.create({
-                        username:this._user.username,
-                        email:this._user.email,
-                        password:this._user.password,
-                        name:this._user.name,
-                        lastName:this._user.lastName,
-                        direccion:this._user.direccion
-                    });
+            });
+       
 
-                return `User created: ${newUser}`;
-            }
+            
             
     }
 }
