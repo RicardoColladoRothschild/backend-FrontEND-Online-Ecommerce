@@ -11,10 +11,24 @@ class UsersServices{
             where:{email:this._user.email}
         });
 
-            if(isEmailDuplicated){
-                throw new Error('There has been an internal Server Error, element email is duplicated');
+        const isUserNameDuplicated = await Users.findOne({
+            where:{username:this._user.username}
+        });
+
+            if(isEmailDuplicated || isUserNameDuplicated){
+                throw new Error('There has been an internal Server Error, element email or username is duplicated');
             }else{
-                return `User created: ${this._user}`;
+
+                    const newUser = Users.create({
+                        username:this._user.username,
+                        email:this._user.email,
+                        password:this._user.password,
+                        name:this._user.name,
+                        lastName:this._user.lastName,
+                        direccion:this._user.direccion
+                    });
+
+                return `User created: ${newUser}`;
             }
             
     }

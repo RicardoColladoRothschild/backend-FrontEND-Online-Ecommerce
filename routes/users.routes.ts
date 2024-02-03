@@ -1,5 +1,7 @@
 import express, { Request, Response } from 'express';
+import IUser from '../interfaces/IUser';
 import Users from '../models/Users.model';
+import UsersServices from '../services/users.services';
 const router = express.Router();
 
 router.use(express.json());
@@ -36,6 +38,27 @@ router.get('/all', async (req: Request, res: Response)=>{
             .status(500)
             .json({error:`Internal server error - 500: ${error}`});
         }
+});
+
+router.post('/', async (req:Request, res: Response)=>{
+
+    try{
+        const {username, email, password, name, lastName, direccion } = req.body;
+                const newUser:IUser = {username, email, password, name, lastName, direccion};
+            let user_service = new UsersServices(newUser);
+            const newUser_Created = user_service.createAUser();
+                return res
+                        .status(201)
+                        .json(newUser_Created);
+    }catch(error){
+        return res
+                .status(400)
+                .json({error:error});
+    }
+        
+
+                
+
 });
 
 

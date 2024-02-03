@@ -1,11 +1,11 @@
 interface IUser{
-    user_id:number;
+    user_id?:number;
     username:string;
     email:string;
     password:string;
     name:string;
     lastName:string;
-    address?:string;
+    direccion?:string;
 }
 
 export default IUser;
