@@ -2,11 +2,10 @@
   "name": "onlinestore_ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.ts",
   "scripts": {
     "test": "jest",
-    "test:watch":"jest --watch",
-    "build":"tsc"
+    "test:watch":"jest --watch"
   },
   "keywords": [],
   "author": "Ricardo Collado Rothschild",
