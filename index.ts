@@ -24,9 +24,9 @@ async function startServer() {
         await sequelize.sync();
         
     }
-    server.listen(PORT, () => {
+    /*server.listen(PORT, () => {
         console.log(`server running on http://localhost:${PORT}/`);
-    });
+    });*/
     startServer();
 routeApi(server);              
 
