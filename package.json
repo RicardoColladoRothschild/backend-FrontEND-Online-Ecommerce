@@ -2,7 +2,7 @@
   "name": "onlinestore_ecommerce",
   "version": "1.0.0",
   "description": "",
-  "main": "api/public/index.js",
+  "main": "api/dist/index.js",
   "scripts": {
     "dev":"nodemon api/index.ts",
     "start":"node api/dist/index.js",
