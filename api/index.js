@@ -10,6 +10,3 @@ app.get('/api', (req,res)=>{
 });
 
 routerApi(app);
-server.listen(PORT, ()=>{
-    console.log(`server running on http://localhost:${PORT}`);
-  });
