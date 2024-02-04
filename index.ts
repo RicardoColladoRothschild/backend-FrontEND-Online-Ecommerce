@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import sequelize from './models/sequelize.config';
-//import routeApi from './routes';
+import routeApi from './routes';
 const server = express();
 const PORT = process.env.PORT || 3031;
 
@@ -28,7 +28,7 @@ async function startServer() {
         console.log(`server running on http://localhost:${PORT}/`);
     });
     startServer();
-//routeApi(server);              
+routeApi(server);              
 
 
 

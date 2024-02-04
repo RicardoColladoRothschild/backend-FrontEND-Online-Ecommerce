@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const sequelize_config_1 = __importDefault(require("./models/sequelize.config"));
-//import routeApi from './routes';
+const routes_1 = __importDefault(require("./routes"));
 const server = (0, express_1.default)();
 const PORT = process.env.PORT || 3031;
 server.use(express_1.default.json());
@@ -22,4 +22,4 @@ server.listen(PORT, () => {
     console.log(`server running on http://localhost:${PORT}/`);
 });
 startServer();
-//routeApi(server);              
+(0, routes_1.default)(server);
