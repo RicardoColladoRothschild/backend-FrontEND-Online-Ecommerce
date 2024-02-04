@@ -6,7 +6,7 @@
   "scripts": {
     "dev":"nodemon api/index.ts",
     "start":"node api/dist/index.js",
-    "build":"tsc && mkdir -p public && cp -r dist/* public"
+    "build":"tsc && mkdir -p public && cp -r ./api/dist/* public"
     
   },
   "keywords": [],
