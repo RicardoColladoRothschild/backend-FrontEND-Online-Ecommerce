@@ -5,8 +5,8 @@
   "main": "api/dist/index.js",
   "scripts": {
     "dev":"nodemon api/index.ts",
-    "start":"node api/dist/index.js",
-    "build":"tsc"
+    "start":"node api/dist/index.js"
+    
     
   },
   "keywords": [],
