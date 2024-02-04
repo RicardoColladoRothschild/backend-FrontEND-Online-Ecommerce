@@ -1,13 +1,9 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const Users_model_1 = __importDefault(require("../models/Users.model"));
-const users_services_1 = __importDefault(require("../services/users.services"));
-const router = express_1.default.Router();
-router.use(express_1.default.json());
+
+const express = require("express");
+const Users = require("../models/Users.model");
+const userServices = require("../services/users.services");
+const router = express.Router();
+router.use(express.json());
 router.get('/', async (req, res) => {
     try {
         res
@@ -22,7 +18,7 @@ router.get('/', async (req, res) => {
 });
 router.get('/all', async (req, res) => {
     try {
-        const user = await Users_model_1.default.findAll();
+        const user = await Users.findAll();
         res
             .status(200)
             .json({ user });
@@ -37,7 +33,7 @@ router.post('/', async (req, res) => {
     try {
         const { username, email, password, name, lastName, direccion } = req.body;
         const newUser = { username, email, password, name, lastName, direccion };
-        let user_service = new users_services_1.default(newUser);
+        let user_service = new userServices(newUser);
         const newUser_Created = user_service.createAUser();
         newUser_Created
             .then((resolve) => {
@@ -57,4 +53,4 @@ router.post('/', async (req, res) => {
             .json({ error: error });
     }
 });
-exports.default = router;
+module.exports = router;
