@@ -22,11 +22,11 @@ server.get('/api/rutatesting', (request:Request, response: Response)=>{
 
 async function startServer() {
         await sequelize.sync();
-        server.listen(PORT, () => {
-            console.log(`server running on http://localhost:${PORT}/`);
-        });
+        
     }
-
+    server.listen(PORT, () => {
+        console.log(`server running on http://localhost:${PORT}/`);
+    });
     startServer();
 routeApi(server);              
 

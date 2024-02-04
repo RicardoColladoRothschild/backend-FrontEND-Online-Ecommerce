@@ -17,9 +17,9 @@ server.get('/api/rutatesting', (request, response) => {
 });
 async function startServer() {
     await sequelize_config_1.default.sync();
-    server.listen(PORT, () => {
-        console.log(`server running on http://localhost:${PORT}/`);
-    });
 }
+server.listen(PORT, () => {
+    console.log(`server running on http://localhost:${PORT}/`);
+});
 startServer();
 (0, routes_1.default)(server);
