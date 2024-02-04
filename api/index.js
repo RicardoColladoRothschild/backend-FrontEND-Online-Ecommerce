@@ -9,3 +9,4 @@ app.get('/api', (req,res)=>{
     res.send('Hello, trying a seerverles routes');
 });
 
+app.listen(PORT)
