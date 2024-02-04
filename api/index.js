@@ -10,7 +10,10 @@ const server = (0, express_1.default)();
 const PORT = process.env.PORT || 3031;
 server.use(express_1.default.json());
 server.get('/api', (request, response) => {
-    response.status(200).json({ message: 'Probando index' });
+    response.send('Esta es una ruta normal');
+});
+server.get('/api/rutatesting', (request, response) => {
+    response.send('Hola, estamos probando rooting');
 });
 async function startServer() {
     await sequelize_config_1.default.sync();

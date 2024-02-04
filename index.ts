@@ -9,7 +9,12 @@ server.use(express.json());
 
 server.get('/api', (request:Request, response: Response)=>{
 
-        response.status(200).json({message:'Probando index'});
+        response.send('Esta es una ruta normal');
+});
+
+server.get('/api/rutatesting', (request:Request, response: Response)=>{
+
+    response.send('Hola, estamos probando rooting');
 });
 
 
