@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3030;
 
 app.use(express.json());
 
-app.get('/', (req,res)=>{
+app.get('/api', (req,res)=>{
     res.send('Hello, trying a seerverles routes');
 });
 
