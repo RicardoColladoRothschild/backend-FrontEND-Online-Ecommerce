@@ -14,7 +14,7 @@ router.get('/', async (req: Request, res: Response)=>{
         
             res
                 .status(200)
-                .json({message:'SImulando data'});
+                .json({message:'Simulando data'});
     }catch(error){
         res
         .status(500)
