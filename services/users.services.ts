@@ -1,5 +1,6 @@
 import IUser from "../interfaces/IUser";
 import Users from '../models/Users.model';
+import BCryptService from './bcrypt.service';
 class UsersServices{
     private _user:IUser;
     constructor(user:IUser){
@@ -21,17 +22,26 @@ class UsersServices{
                 if(isEmailDuplicated || isUserNameDuplicated){
                     reject('user was not created. Already exist.');
                 }else{
-    
-                        const newUser = Users.create({
-                            username:this._user.username,
-                            email:this._user.email,
-                            password:this._user.password,
-                            name:this._user.name,
-                            lastName:this._user.lastName,
-                            direccion:this._user.direccion
+                    let newUser;
+                    const bcs:BCryptService = new BCryptService();
+                        bcs.hashPassword(this._user.password)
+                        .then(hash=>{
+
+                            newUser = Users.create({
+                                username:this._user.username,
+                                email:this._user.email,
+                                password:hash,
+                                name:this._user.name,
+                                lastName:this._user.lastName,
+                                direccion:this._user.direccion
+                            });
+                            resolve(newUser);
+                        })
+                        .catch(error2=>{
+                            reject(error2)
                         });
     
-                    resolve(newUser);
+                    
                 }
 
             });

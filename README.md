@@ -15,3 +15,6 @@ node index.ts
 
 The server will be running and up, you will only have to go to:
 http://localhost:PORT/index.html
+
+
+
