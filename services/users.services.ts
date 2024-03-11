@@ -50,6 +50,24 @@ class UsersServices{
             
             
     }
+
+    /*Find user by email:*/
+
+    static async findByEmail(emailUser:string){
+
+            const user_found = await Users.findOne({
+                where:{email:emailUser}
+            });
+
+                return new Promise((reject, resolve)=>{
+
+                        if(!user_found){
+                            reject("User was not found");
+                        }else{
+                            resolve(user_found);
+                        }
+                });
+    }
 }
 
 

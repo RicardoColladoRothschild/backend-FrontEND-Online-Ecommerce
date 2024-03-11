@@ -37,6 +37,7 @@ router.get('/all', async (req: Request, res: Response)=>{
         }
 });
 
+/*This route is going to create a new user in the that dabe, it helps by a services, user.services that actually take the steps to create the user.*/ 
 router.post('/', async (req:Request, res: Response)=>{
 
     try{
