@@ -1,0 +1,8 @@
+
+{
+    "Loggin":{
+        "User":"Usuario",
+        "Password":"Contraseña",
+        "ForgotPassword":"Olvide mi Contraseña"
+    }
+}
