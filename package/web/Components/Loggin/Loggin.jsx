@@ -1,4 +1,4 @@
-import { Resources } from '../../../TranslationResource/Resources';
+import { Resources } from '../../hook/Resources';
 
 let resource = new Resources();
 function Loggin(){
